@@ -56,7 +56,8 @@ h2 {
 	text-align: center;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 0;
-
+  height: 10em;
+  border-radius: 10px;
 }
 
 .carousel-control {
