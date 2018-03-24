@@ -39,9 +39,13 @@
     <p>Text 2</p>
   </div>
 </div> -->
+
+
   <div id="energySlider" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
+
   <ol class="carousel-indicators">
+    <button data-toggle="collapse" data-target="#energySlider">Collapsible</button><br>
     <li data-target="#energySlider" data-slide-to="0" class="active"></li>
     <li data-target="#energySlider" data-slide-to="1"></li>
     <li data-target="#energySlider" data-slide-to="2"></li>
@@ -114,10 +118,54 @@
     </a>
   </div>
 </div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+       <div id="chart_div" style="width: 100%; height: 500px;"></div>
+   
+
+
 <footer>
   <small>&copy;
     <script type="text/javascript">
       document.write(new Date().getFullYear());
+    </script>
+
+    <script>
+          google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Months', 'Motion', 'No Motion'],
+          ['Jan',  47,      94],
+          ['Feb',  80,      170],
+          ['Mar',  112,       250],
+          ['Apr',  152,      312],
+          ['May',  180,      365],
+          ['Jun',  215,      400],
+          ['Jul',  240,      435],
+          ['Aug',  285,      470],
+          ['Sep',  319,      565],
+          ['Oct',  350,     650],
+          ['Nov',  390,     720],
+          ['Dec',  440,     814],
+
+        ]);
+
+
+
+        var options = {
+          title: 'Money Saved From Using Motion Sensor Lights VS No Motion',
+          hAxis: {title: 'Months',  titleTextStyle: {color: '#333'}, slantedText:false, slantedTextAngle:90 },
+          vAxis: {title: 'Cost', minValue: 0},
+          backgroundColor: '#222222',
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    
     </script>
     &nbsp;Team Paladin; images: unsplash.com</small>
 </footer>
