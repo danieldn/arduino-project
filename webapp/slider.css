@@ -54,9 +54,14 @@ h2 {
 	top: 2%;
 	font-size: 1.5em;
 	text-align: center;
-  background-color: rgba(0, 0, 0, 0.5);
   padding: 0;
-  height: 10em;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.transparent-box {
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 0;
   border-radius: 10px;
 }
 
