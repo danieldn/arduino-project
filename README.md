@@ -1,4 +1,4 @@
-# Paladin
+# Watt's Up!
 
 Arduino project for IoT Hackathon 2018 by Women Who Code (Portland) at Puppet.
 \#WWCodeHack18
