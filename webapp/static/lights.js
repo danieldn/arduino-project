@@ -9,8 +9,12 @@ function get_lights(){
     }).done(function(data){
       if (data === "1") {
         console.log("return 1");
+        $('#bulb').addClass('yellow');
+        $('#commentBox').addClass('light');
       } else {
         console.log("return 0");
+        $('#bulb').removeClass('yellow');
+        $('#commentBox').removeClass('light');
       }
     });
 }

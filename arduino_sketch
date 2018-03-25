@@ -1,0 +1,32 @@
+#include <ESP8266HTTPClient.h>
+#define USE_SERIAL Serial
+
+
+int outPin = 01;
+int inPin = 16;
+int val = 0;
+int change = 1;
+int count = 0;
+
+
+void setup(){
+  USE_SERIAL.begin(115200);
+  pinMode(inPin, INPUT);
+}
+
+void loop(){
+  val = digitalRead(inPin);
+  if(change != val){
+    if( val == 1){
+      //Serial.println("Turn lights ON!");
+      Serial.println(val);
+      count ++;
+      //Serial.print("Count is ");
+      //Serial.println(count);
+    }else{
+      //Serial.println("Turn lights OFF!");
+      Serial.println(val);
+    }
+    change = val;
+  }
+}
