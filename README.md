@@ -3,6 +3,7 @@
 Arduino project for IoT Hackathon 2018 by Women Who Code (Portland) at Puppet.
 \#WWCodeHack18
 
+https://docs.google.com/presentation/d/173wPA3WLyx58hNXYljjkQvZGm3TUnfF9PzkopYKO_VY/edit?usp=sharing
 
 ## Team Members
 
