@@ -7,26 +7,20 @@ const char* password = "argon4949";
 int8_t utc_offset = -7; // hours off of UTC... -7 for PST?
 const char* location = "portland%2C%20or";
 
+const char* path_prefix2 = "query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22";
+const char* path_postfix2 = "%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
 const char* path_prefix = "/v1/public/yql?q=select%20item.condition.code%2C%20item.condition.text%20%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22";
 const char* path_postfix = "%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
 const char* host = "query.yahooapis.com";
 const int httpPort = 80;
 
-
 int16_t weathercode = -1;
-int16_t createhour, createmin;
+int16_t createhour, createmin, temperature;
 
 void setup() {
   Serial.begin(115200);
-  delay(10);
-
-  // We start by connecting to a WiFi network
-
-  Serial.println();
-  Serial.println();
-  Serial.print("Connecting to ");
-  Serial.println(ssid);
-  
+  delay(10);  
   WiFi.begin(ssid, password);
   
   while (WiFi.status() != WL_CONNECTED) {
@@ -46,12 +40,41 @@ uint32_t timekeep=0xFFFF;
 
 void loop() {
   uint32_t currTime = millis();
-  // every 30 seconds (or if there's a rollover/first time running, update the weather!
   if ((timekeep > currTime)  || (currTime > (timekeep + 30000))) {
     timekeep = currTime;
     updateWeather();
+    getTemperature();
+
   }
 
+}
+
+void getTemperature() {
+  WiFiClient client;
+  if (!client.connect(host, httpPort)) {
+    Serial.println("Connection failed");
+    return;
+  }
+
+  String url = String(path_prefix2) + String(location) + String(path_postfix2);
+
+  // This will send the request to the server
+  client.print(String("GET ") + url + " HTTP/1.1\r\n" +
+               "Host: " + host + "\r\n" + 
+               "Connection: close\r\n\r\n");
+  delay(500);
+
+   while(client.available()){
+    String line = client.readStringUntil('\r');
+    int i = line.indexOf(String("\"temp\":"));
+    if (i < 0)
+      continue;
+    //Serial.println(line);
+    temperature = line.substring(i+8).toInt();
+    Serial.print("temperature: ");
+    Serial.println(temperature);
+    
+   }
 }
 
 
@@ -77,6 +100,7 @@ void updateWeather() {
                "Host: " + host + "\r\n" + 
                "Connection: close\r\n\r\n");
   delay(500);
+  
 
   weathercode = -1;
   // Read all the lines of the reply from server and print them to Serial
@@ -84,7 +108,7 @@ void updateWeather() {
     String line = client.readStringUntil('\r');
     int i = line.indexOf(String("\"code\":"));
     if (i < 0) continue;
-    Serial.println(line);
+    //Serial.println(line);
     weathercode = (line.substring(i+8)).toInt();
 
     // extract hour and minute
@@ -104,9 +128,9 @@ void updateWeather() {
   Serial.print(" @ "); Serial.print(createhour); Serial.print(":"); Serial.println(createmin);
 
   // Get the current time of day, between 0 and 65535
-  uint16_t timeofday = map((createhour * 60) + createmin, 0, 1440, 0, 65535);
+  //uint16_t timeofday = map((createhour * 60) + createmin, 0, 1440, 0, 65535);
 
-  Serial.print("Time of day = "); Serial.print(timeofday); Serial.println("/65535");
+  //Serial.print("Time of day = "); Serial.print(timeofday); Serial.println("/65535");
   
  
 
