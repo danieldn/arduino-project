@@ -1,0 +1,127 @@
+body {
+	background-color: #222222;
+	color: #f7f7f7;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+	margin-bottom: 0;
+  padding: 0.5em;
+  font-size: 1.5em;
+}
+
+	.navbar-brand {
+		font-size: 1.5em;
+    padding: 0.5em;
+	}
+}
+
+.container {
+  padding: 0;
+}
+
+h2 {
+	text-align: center;
+}
+
+#userProfile {
+	top: 50%;
+	left: 42%;
+	background-color: #32cd32;
+	z-index: 999;
+	position: absolute;
+	font-size: 3em;
+	padding: 0.5em 1em;
+	border-radius: 10px;
+	border: #32cd32;
+}
+
+#userProfile:hover {
+	background-color: yellow;
+	color: #000000;
+}
+
+#energySlider {
+  height: 91vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  width: 100vw;
+}
+
+.item > img {
+	width: 100%;
+	height: 91vh;
+  object-fit: cover;
+}
+
+.carousel-caption {
+	top: 2%;
+	font-size: 1.5em;
+	text-align: center;
+  padding: 0;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.transparent-box {
+	background-color: rgba(0, 0, 0, 0.8);
+	padding: 1em;
+  border-radius: 10px;
+}
+
+.carousel-control {
+  height: 88vh;
+}
+
+.black {
+	top: 5%;
+	left: 45%;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #ffffff;
+	height: 10em;
+}
+
+#chart_div > div {
+	width: 97vw;
+}
+
+#graphSection {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#commentBox {
+	height: 10em;
+	padding: 1em;
+	width: 100%;
+	text-align: center;
+}
+
+/*#startButton {
+	text-align: center;
+	background-color: green;
+	font-size: 3em;
+	padding: 0.5em 1em;
+	margin: auto;
+}
+
+#startButton:hover {
+	background-color: yellow;
+}*/
+
+footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  text-align: center;
+	width: 100%;
+	margin: 0.5em 0;
+  color: #FFFFFF;
+}
