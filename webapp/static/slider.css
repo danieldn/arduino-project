@@ -20,7 +20,9 @@ h2 {
 
 #userProfile {
 	top: 50%;
-	left: 42%;
+	left: 0;
+	right: 0;
+	margin: auto;
 	background-color: #32cd32;
 	z-index: 999;
 	position: absolute;
@@ -129,4 +131,51 @@ footer {
 	width: 100%;
 	margin: 0.5em 0;
   color: #FFFFFF;
+}
+
+@media only screen and (max-width: 800px) {
+  .navbar {
+		font-size: 1em;
+		margin-bottom: 0px;
+	}
+
+	.container {
+	  padding-left: 1em;
+	}
+
+	#userProfile {
+		top: 75%;
+		font-size: 2em;
+	}
+
+
+	#commentBox {
+		font-size: 1em;
+		margin-left: 0;
+	}
+
+	#commentBox > h1 {
+		font-size: 0.7em;
+	}
+
+	#commentBox > h3 {
+		font-size: 0.5em;
+		height: 5em;
+	}
+
+	.transparent-box > h2 {
+		font-size: 0.7em;
+	}
+
+	.transparent-box > h3 {
+		font-size: 0.5em;
+	}
+
+	h2 {
+		font-size: 0.7em;
+	}
+
+	h3 {
+		font-size: 0.5em;
+	}
 }
