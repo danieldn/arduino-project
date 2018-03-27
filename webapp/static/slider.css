@@ -50,8 +50,8 @@ h2 {
 }
 
 .item > img {
-	width: 100%;
-	height: 91vh;
+	min-width: 100vw;
+	min-height: 100vh;
   object-fit: cover;
 }
 
@@ -141,10 +141,13 @@ footer {
 	}
 
 	#userProfile {
-		top: 75%;
+		top: 60%;
 		font-size: 2em;
 	}
 
+	.item > img {
+		min-height: 95vh;
+	}
 
 	#commentBox {
 		font-size: 1em;
@@ -160,12 +163,12 @@ footer {
 		height: 5em;
 	}
 
-	.transparent-box > h2 {
-		font-size: 0.7em;
-	}
-
-	.transparent-box > h3 {
-		font-size: 0.5em;
+	.black {
+		top: 2%;
+		left: 10%;
+		height: auto;
+		margin: auto;
+		font-size: 1.5em;
 	}
 
 	h2 {
