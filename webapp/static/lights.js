@@ -19,4 +19,4 @@ function get_lights(){
     });
 }
 
-setInterval(get_lights, 100000);
+setInterval(get_lights, 1000000);

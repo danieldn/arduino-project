@@ -5,7 +5,7 @@ body {
 }
 
 .navbar {
-	margin-bottom: 0;
+	margin-bottom: 0px;
   padding: 0.5em;
   font-size: 1.5em;
 }
@@ -64,10 +64,10 @@ h2 {
   border-radius: 10px;
 }
 
-.transparent-box {
+.carousel-caption > h2, .carousel-caption > h3 {
 	background-color: rgba(0, 0, 0, 0.8);
-	padding: 1em;
-  border-radius: 10px;
+	padding: 0.5em 1em;
+	border-radius: 10px;
 }
 
 .carousel-control {
@@ -77,7 +77,6 @@ h2 {
 .black {
 	top: 5%;
 	left: 45%;
-	background-color: rgba(0, 0, 0, 0.8);
 	color: #ffffff;
 	height: 6em;
 	font-size: 1em;
@@ -119,7 +118,6 @@ h2 {
 
 .light {
 	background-color: #484848;
-
 }
 
 footer {
@@ -136,7 +134,6 @@ footer {
 @media only screen and (max-width: 800px) {
   .navbar {
 		font-size: 1em;
-		margin-bottom: 0px;
 	}
 
 	.container {
