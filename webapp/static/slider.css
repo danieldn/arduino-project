@@ -83,34 +83,35 @@ h2 {
 }
 
 #chart_div > div {
-	width: 97vw;
+	width: 100vw;
 }
 
 #graphSection {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: flex-start;
 }
 
 #commentBox {
-	height: 10em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: auto;
 	padding: 1em;
 	width: 100%;
 	text-align: center;
-	margin-left: 6em;
+	margin-bottom: 1.5em;
 }
 
-/*#startButton {
-	text-align: center;
-	background-color: green;
-	font-size: 3em;
-	padding: 0.5em 1em;
+#bulb {
+	height: 100px;
+	width: 100px;
 	margin: auto;
+	background-image: url('electric-light-bulb.png');
+	background-position: center;
+	background-repeat: no-repeat;
 }
-
-#startButton:hover {
-	background-color: yellow;
-}*/
 
 .yellow {
 	background-color: yellow;
@@ -155,12 +156,16 @@ footer {
 	}
 
 	#commentBox > h1 {
-		font-size: 0.7em;
+		font-size: 1em;
 	}
 
 	#commentBox > h3 {
-		font-size: 0.5em;
+		font-size: 0.8em;
 		height: 5em;
+	}
+
+	#commentBox > h4 {
+		font-size: 0.6em;
 	}
 
 	.black {
@@ -169,13 +174,5 @@ footer {
 		height: auto;
 		margin: auto;
 		font-size: 1.5em;
-	}
-
-	h2 {
-		font-size: 0.7em;
-	}
-
-	h3 {
-		font-size: 0.5em;
 	}
 }
