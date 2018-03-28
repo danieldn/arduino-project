@@ -82,15 +82,11 @@ h2 {
 	font-size: 1em;
 }
 
-#chart_div > div {
-	width: 100vw;
-}
-
 #graphSection {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: flex-start;
+	width: 100vw;
 }
 
 #commentBox {
@@ -102,23 +98,36 @@ h2 {
 	width: 100%;
 	text-align: center;
 	margin-bottom: 1.5em;
+	margin: auto;
 }
+
 
 #bulb {
 	height: 100px;
 	width: 100px;
 	margin: auto;
-	background-image: url('electric-light-bulb.png');
 	background-position: center;
 	background-repeat: no-repeat;
 }
 
-.yellow {
-	background-color: yellow;
+.bulb-on {
+	background-image: url('electric-light-bulb-yellow.png');
+}
+
+.bulb-off {
+	background-image: url('electric-light-bulb.png');
 }
 
 .light {
 	background-color: #484848;
+}
+
+#chart_div {
+	margin: auto;
+}
+
+#chart_div > div {
+	width: 100vw;
 }
 
 footer {

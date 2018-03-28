@@ -9,14 +9,14 @@ function get_lights(){
     }).done(function(data){
       if (data === "1") {
         console.log("return 1");
-        $('#bulb').addClass('yellow');
+        $('#bulb').addClass('bulb-on').removeClass('bulb-off');
         $('body').addClass('light');
       } else {
         console.log("return 0");
-        $('#bulb').removeClass('yellow');
+        $('#bulb').removeClass('bulb-on').addClass('bulb-off');
         $('body').removeClass('light');
       }
     });
 }
 
-setInterval(get_lights, 1000000);
+setInterval(get_lights, 1000);
