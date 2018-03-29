@@ -36,8 +36,8 @@
 	</div>
 </nav>
 
-<button id="userProfile">Try it out!</button>
-  <div id="energySlider" class="carousel slide" data-ride="carousel">
+<div class="absolute"><button id="userProfile">Try it out!</button></div>
+<div id="energySlider" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
 
   <ol class="carousel-indicators">
@@ -96,64 +96,70 @@
   <div id="commentBox">
     <h1>Track your savings with Watt's Up</h1>
     <h3>Download the app and start saving today</h3>
-    <h4>Transmitting data from your motion sensor...</h4>
+    <div class="switchBox">
+      <h3>Transmit data from your motion sensor</h3>
+      <!-- Rounded switch -->
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+    </div>
     <div id="bulb"></div>
   </div>
-  <!-- <button id="startButton">Start Whatt's Up</button> -->
-  <div id="chart_div" style="width: 95vw; height: 55vh; margin: 1em auto">
-  </div>
+  <!-- Google graph -->
+  <div id="chart_div"></div>
+
+  <footer>
+    <small>&copy;
+      <script type="text/javascript">
+        document.write(new Date().getFullYear());
+      </script>
+      <script>
+            google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Months', 'Motion', 'No Motion'],
+            ['Jan',  47,      94],
+            ['Feb',  80,      170],
+            ['Mar',  112,       250],
+            ['Apr',  152,      312],
+            ['May',  180,      365],
+            ['Jun',  215,      400],
+            ['Jul',  240,      435],
+            ['Aug',  285,      470],
+            ['Sep',  319,      565],
+            ['Oct',  350,     650],
+            ['Nov',  390,     720],
+            ['Dec',  440,     814],
+
+          ]);
+
+
+
+          var options = {
+            title: 'Money Saved From Using Motion Sensor Lights VS No Motion',
+            hAxis: {title: 'Months',  titleTextStyle: {color: '#333'}, slantedText:false, slantedTextAngle:90 },
+            vAxis: {title: 'Cost', minValue: 0},
+            backgroundColor: '#222222',
+          };
+
+          var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+          chart.draw(data, options);
+
+          $("#userProfile").click(function() {
+              $('html, body').animate({
+                  scrollTop: $("#chart_div").offset().top
+              }, 1500);
+          });
+        }
+
+      </script>
+      &nbsp;Team Paladin; images: unsplash.com; device description: Adafruit Industries. </small>
+  </footer>
 </div>
-
-<footer>
-  <small>&copy;
-    <script type="text/javascript">
-      document.write(new Date().getFullYear());
-    </script>
-    <script>
-          google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Months', 'Motion', 'No Motion'],
-          ['Jan',  47,      94],
-          ['Feb',  80,      170],
-          ['Mar',  112,       250],
-          ['Apr',  152,      312],
-          ['May',  180,      365],
-          ['Jun',  215,      400],
-          ['Jul',  240,      435],
-          ['Aug',  285,      470],
-          ['Sep',  319,      565],
-          ['Oct',  350,     650],
-          ['Nov',  390,     720],
-          ['Dec',  440,     814],
-
-        ]);
-
-
-
-        var options = {
-          title: 'Money Saved From Using Motion Sensor Lights VS No Motion',
-          hAxis: {title: 'Months',  titleTextStyle: {color: '#333'}, slantedText:false, slantedTextAngle:90 },
-          vAxis: {title: 'Cost', minValue: 0},
-          backgroundColor: '#222222',
-        };
-
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-
-        $("#userProfile").click(function() {
-            $('html, body').animate({
-                scrollTop: $("#chart_div").offset().top
-            }, 1500);
-        });
-      }
-
-    </script>
-    &nbsp;Team Paladin; images: unsplash.com; device description: Adafruit Industries. </small>
-</footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.js"></script>
 <!-- Bootstrap latest compiled and minified JavaScript -->
