@@ -23,17 +23,17 @@ _Amber Stone, Erika Martinez, Daniel Nguyen, Diana Connolly, Erika Martinez, Lar
 
 ## Setup Notes
 
-Setting up the Feather Huzzah was fairly straightforward using the instructions for the Blink Test 
+Setting up the Feather Huzzah was fairly straightforward using the instructions for the Blink Test
 
-Setting up the PIR Sensor "Hello World" test equired a bit more troubleshooting. 
+Setting up the PIR Sensor "Hello World" test equired a bit more troubleshooting.
 
-We found the PIR to be extremely sensitive, not only to movement, but to bright light. 
-Using the 3.3V output of the huzzah as the power source excaborated the sensitivity. 
+We found the PIR to be extremely sensitive, not only to movement, but to bright light.
+Using the 3.3V output of the huzzah as the power source excaborated the sensitivity.
 We dialed the sensitivity potentiometer down to the lowest sensitivity possible and used the 5V USB power output of huzzah. This enabled a successful test. We are using a ceramic bowl and cup to simulate a dark room for our demo.
 
 ## Website for Presentation
 
-[Watt's Up!] <http://10.0.13.6:5000/>
+[Watt's Up!] <http://stormy-beyond-38258.herokuapp.com/>
 
 ## What's Next? Exciting project plans for the future
 
@@ -42,5 +42,3 @@ Setting the sensor up to connect to actual light controlls
 View Yahoo weather API's to control internal lighting
 
 Build Backend storage to facilitate collection and analysis of data
-
-

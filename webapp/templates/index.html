@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Bootstrap latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Bootstrap optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <!-- Bootstrap Select latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link href="/static/slider.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <script src="/static/lights.js"></script>
@@ -24,7 +24,10 @@
 				<span class="icon-bar"></span>
         <span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Watt's Up?</a>
+			<a class="brand" href="/" style="text-decoration: none; color: #9d9d9d; font-size: 1.5em;">
+        <img class="img-responsive" src="static/Logo2.jpg" style="display:inline-block; max-width: 45px; border-radius:50%; line-height: normal" alt="logo">
+        <p style="display:inline-block; line-height: normal; margin-bottom:0px">Watt's Up?</p>
+      </a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
@@ -35,10 +38,9 @@
 	</div>
 </nav>
 
-<button id="userProfile">Try it out!</button>
-  <div id="energySlider" class="carousel slide" data-ride="carousel">
+<div class="absolute"><button id="userProfile">Try it out!</button></div>
+<div id="energySlider" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
-
   <ol class="carousel-indicators">
     <li data-target="#energySlider" data-slide-to="0" class="active"></li>
     <li data-target="#energySlider" data-slide-to="1"></li>
@@ -51,40 +53,31 @@
     <div class="item active">
       <img src="/static/light.jpeg" alt="energy">
       <div class="carousel-caption">
-        <div class="transparent-box">
-          <h2>Reducing Energy Consumption</h2>
-          <h3>We must find ways to reduce the amount of electricity we use. One of the ways we can do this is by changing habits around using lights.</h3>
-        </div>
+        <h2>Reducing Energy Consumption</h2>
+        <h3>We must find ways to reduce the amount of electricity we use. One of the ways we can do this is by changing habits around using lights.</h3>
       </div>
     </div>
 
     <div class="item">
       <img src="/static/light2.jpeg" alt="energy2">
       <div class="carousel-caption">
-        <div class="transparent-box">
-          <h3>There is a small amount of energy used in turning a light back on, but it is not as large as the amount used if it is kept on.</h3>
-
-        </div>
+        <h3>There is a small amount of energy used in turning a light back on, but it is not as large as the amount used if it is kept on.</h3>
       </div>
     </div>
 
     <div class="item">
       <img src="/static/light3.jpeg" alt="energy3">
       <div class="carousel-caption">
-        <div class="transparent-box">
-          <h3>Turning lights off when they are not in use seems very simple, but is actually a habit that many people have difficulty with...</h3>
-          <h2>SOLUTION: motion sensor switches!</h2>
-        </div>
+        <h3>Turning lights off when they are not in use seems very simple, but is actually a habit that many people have difficulty with...</h3>
+        <h2>SOLUTION: motion sensor switches!</h2>
       </div>
   </div>
 
   <div class="item">
     <img src="/static/device2.jpg" alt="energy4">
     <div class="carousel-caption black">
-      <div class="transparent-box">
-        <h2>What's a motion sensor switch?</h2>
-        <h3>Pyroelectric InfraRed (PIR) Sensors allow you to sense motion! It's usually used to detect the presence of living things found in or out of the sensors range. Pros of these sensors are that they are small, inexpensive, low-power, easy to use and hold up to wear out.</h3>
-      </div>
+      <h2>What's a motion sensor switch?</h2>
+      <h3>Pyroelectric InfraRed (PIR) Sensors allow you to sense motion! It's usually used to detect the presence of living things found in or out of the sensors range. Pros of these sensors are that they are small, inexpensive, low-power, easy to use and hold up to wear out.</h3>
     </div>
   </div>
 
@@ -99,69 +92,75 @@
     </a>
   </div>
 </div>
-
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<div id="graphSection" style="width: 95vw; height: 96vh; overflow: hidden">
+<div id="graphSection">
   <div id="commentBox">
-    <h1>Track your savings with Watt's Up <img id="bulb" class="yellow" src="static/old-light-bulb.svg" height="100px"/></h1>
-    <h3>Download the app and start saving today</h3>
+    <h1>Track your savings with Watt's Up</h1>
+    <div class="switchBox">
+      <h3>Transmit data from your motion sensor</h3>
+      <!-- Rounded switch -->
+      <label class="switch">
+        <input type="checkbox" class="checkbox">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div id="bulb"></div>
   </div>
-  <!-- <button id="startButton">Start Whatt's Up</button> -->
-  <div id="chart_div" style="width: 95vw; height: 55vh; margin: 1em auto">
-  </div>
+  <!-- Google graph -->
+  <div id="chart_div"></div>
+
+  <footer>
+    <small>&copy;
+      <script type="text/javascript">
+        document.write(new Date().getFullYear());
+      </script>
+      <script>
+            google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Months', 'Motion', 'No Motion'],
+            ['Jan',  47,      94],
+            ['Feb',  80,      170],
+            ['Mar',  112,       250],
+            ['Apr',  152,      312],
+            ['May',  180,      365],
+            ['Jun',  215,      400],
+            ['Jul',  240,      435],
+            ['Aug',  285,      470],
+            ['Sep',  319,      565],
+            ['Oct',  350,     650],
+            ['Nov',  390,     720],
+            ['Dec',  440,     814],
+
+          ]);
+
+
+
+          var options = {
+            title: 'Money Saved From Using Motion Sensor Lights VS No Motion',
+            hAxis: {title: 'Months',  titleTextStyle: {color: '#333'}, slantedText:false, slantedTextAngle:90 },
+            vAxis: {title: 'Cost', minValue: 0},
+            backgroundColor: '#222222',
+          };
+
+          var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+          chart.draw(data, options);
+
+          $("#userProfile").click(function() {
+              $('html, body').animate({
+                  scrollTop: $("#chart_div").offset().top
+              }, 1500);
+          });
+        }
+
+      </script>
+      &nbsp;Team Paladin; images: unsplash.com; device description: Adafruit Industries; switch button: W3Schools. </small>
+  </footer>
 </div>
-
-<footer>
-  <small>&copy;
-    <script type="text/javascript">
-      document.write(new Date().getFullYear());
-    </script>
-    <script>
-          google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Months', 'Motion', 'No Motion'],
-          ['Jan',  47,      94],
-          ['Feb',  80,      170],
-          ['Mar',  112,       250],
-          ['Apr',  152,      312],
-          ['May',  180,      365],
-          ['Jun',  215,      400],
-          ['Jul',  240,      435],
-          ['Aug',  285,      470],
-          ['Sep',  319,      565],
-          ['Oct',  350,     650],
-          ['Nov',  390,     720],
-          ['Dec',  440,     814],
-
-        ]);
-
-
-
-        var options = {
-          title: 'Money Saved From Using Motion Sensor Lights VS No Motion',
-          hAxis: {title: 'Months',  titleTextStyle: {color: '#333'}, slantedText:false, slantedTextAngle:90 },
-          vAxis: {title: 'Cost', minValue: 0},
-          backgroundColor: '#222222',
-        };
-
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-
-        $("#userProfile").click(function() {
-            $('html, body').animate({
-                scrollTop: $("#chart_div").offset().top
-            }, 1500);
-        });
-      }
-
-    </script>
-    &nbsp;Team Paladin; images: unsplash.com; device description: <a href="https://learn.adafruit.com/pir-passive-infrared-proximity-motion-sensor"></a> </small>
-</footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- JQuery Slider -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.js"></script>
 <!-- Bootstrap latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
